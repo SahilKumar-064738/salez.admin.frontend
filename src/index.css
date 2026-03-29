@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sidebar-width: 220px;
+    --topbar-height: 52px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-gray-100 rounded-xl shadow-sm;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-brand-400 text-white border-brand-600 hover:bg-brand-600;
+  }
+
+  .btn-danger {
+    @apply text-red-600 border-red-200 hover:bg-red-50;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition-all;
+  }
+
+  .select {
+    @apply input appearance-none pr-8 cursor-pointer;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success { @apply bg-green-100 text-green-800; }
+  .badge-danger  { @apply bg-red-100 text-red-800; }
+  .badge-warning { @apply bg-amber-100 text-amber-800; }
+  .badge-info    { @apply bg-blue-100 text-blue-800; }
+  .badge-gray    { @apply bg-gray-100 text-gray-700; }
+
+  .metric-card {
+    @apply card p-4;
+  }
+
+  .skeleton {
+    @apply bg-gray-200 rounded animate-pulse;
+  }
+
+  .table-wrapper {
+    @apply overflow-x-auto;
+  }
+
+  table {
+    @apply w-full text-sm text-left;
+  }
+
+  thead th {
+    @apply px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-100 bg-gray-50;
+  }
+
+  tbody td {
+    @apply px-4 py-3 text-gray-700 border-b border-gray-50;
+  }
+
+  tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  tbody tr:hover td {
+    @apply bg-gray-50;
+  }
+}
+
+/* Pulse animation for live indicator */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Slide in from left for sidebar mobile */
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
